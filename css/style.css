@@ -3,12 +3,12 @@
 body { padding-top: 60px; font-family: 'Open Sans', Helvetica, Arial, sans-serif; }
 p { font-size: 1.1em; line-height: 1.4em; }
 p.lead { padding-top: 1.5%; font-size: 1.6em; line-height: 2em; }
-.heading, .subheading { font-family: 'Ubuntu', Helvetica, Arial, sans-serif; text-align: center; }
+.heading, .subheading { color: #686848; font-family: 'Ubuntu', Helvetica, Arial, sans-serif; text-align: center; }
 .pitch { padding: 2.5% 0; }
 .order { padding: 2% 0; }
-.actions { padding: 3% 0; background-color: #343434; }
+.actions { padding: 3% 0; background-colors: #343434; }
 .video, .thermometer, .order, .social, .statistics {  text-align: center; }
-.statistics h3, .statistics p { color: white; }
+.statistics h3, .statistics p { color: #686848; }
 .copy { padding-top: 2.5%; padding-bottom: 2.5%; text-align: justify; }
 .asset { padding: 2.5% 0; }
 .footer { color: #cccccc; text-align: center; }
@@ -17,14 +17,15 @@ p.lead { padding-top: 1.5%; font-size: 1.6em; line-height: 2em; }
 
 @media only screen and (min-width: 981px)
 {
-  body { padding-top: 60px; }
-  .linediv-l { border-right: 1px white solid; }
-  .linediv-r { border-left: 1px white solid; }
+  body { padding-top: 60px; background-image: url('../img/bg.jpg'); }
+  .linediv-l { border-right: 1px #888868 solid; }
+  .linediv-r { border-left: 1px #888868 solid; }
 }
 
 @media only screen and (max-width: 768px)
 {
   .copy { padding: 2.5% 10%; }
-  .linediv-l { border-bottom: 1px white solid; }
-  .linediv-r { border-top: 1px white solid; }
+  body { background-image: url('../img/bg.jpg'); }
+  .linediv-l { border-bottom: 1px #888868 solid; }
+  .linediv-r { border-top: 1px #888868 solid; }
 }
