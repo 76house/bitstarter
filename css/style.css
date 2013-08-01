@@ -9,6 +9,7 @@ p.lead { padding-top: 1.5%; font-size: 1.6em; line-height: 2em; }
 .actions { padding: 3% 0; background-colors: #343434; }
 .video, .thermometer, .order, .social, .statistics {  text-align: center; }
 .statistics h3, .statistics p { color: #686848; }
+div.addthis_toolbox { width:180px; margin: 0 auto; }
 .copy { padding-top: 2.5%; padding-bottom: 2.5%; text-align: justify; }
 .asset { padding: 2.5% 0; }
 .footer { color: #cccccc; text-align: center; }
