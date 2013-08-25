@@ -9,7 +9,6 @@ var async   = require('async')
   , db      = require('./models');
 
 var app = express();
-var text = fs.readFileSync('index.html').toString();
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
@@ -22,11 +21,30 @@ app.configure(function(){
 
 // Render homepage (note trailing slash): example.com/
 app.get('/', function(request, response) {
-  var pathname = url.parse(request.url).pathname;
-  console.log("Request for " + pathname + " received.");
-  if (pathname == '/') pathname = 'index.html';
-  var text = fs.readFileSync(pathname).toString();
-  response.send(text);
+
+  global.db.Order.findAll().success(function(orders) {
+
+    var count = 0;
+    var money = 0;
+    var today = new Date();
+    var deadline = new Date(2013, 9, 31);
+    var millisPerDay = 24*60*60*1000;
+    var days = Math.round(Math.abs((deadline.getTime() - today.getTime())/(millisPerDay)));
+    if (days < 0) days = 0;
+
+    orders.forEach(function(order) {
+      count += 1;
+      money += order.amount;
+    });
+
+    // Uses views/index.ejs
+    response.render("index", {count: count, money: money, days: days});
+
+  }).error(function(err) {
+    console.log(err);
+    response.send("error retrieving orders");
+  });
+
 });
 
 // Render example.com/orders
